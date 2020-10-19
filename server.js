@@ -70,7 +70,7 @@ app.post('/api/login', (req, res) => {
   } else {
     res
       .status(403)
-      .json({ error: 'Username or Password incorrect. Please see Readme' });
+      .json({ error: 'Username or Password incorrect. Please see Readme' })
   }
 });
 
@@ -91,6 +91,7 @@ app.get('/api/friends/:id', authenticator, (req, res) => {
 });
 
 app.post('/api/friends', authenticator, (req, res) => {
+  console.log('worked');
   const friend = { id: getNextId(), ...req.body };
 
   friends = [...friends, friend];
